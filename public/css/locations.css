@@ -1,0 +1,191 @@
+
+
+/* CSS related to locations page  */
+
+#map_canvas{ 
+	max-height:400px; 
+	height:400px;
+}
+
+.locationsPage .form_wrap .btn-default.locations{ width:220px;}
+
+.locationsPage .form_wrap{ font-family:Arial, Helvetica, sans-serif; }
+
+.locationsPage .form_wrap .dropdown-menu > li > a{ 
+	font-family:Arial, Helvetica, sans-serif;  
+	padding: 3px 14px;
+}
+
+.locationsPage .form_wrap .dropdown-menu{ width:220px; }
+
+.form_wrap .form_dropdown .epg_branches{
+	background: url(../images/epg_branch.png) center left no-repeat;
+	width: 24px;
+	height: 18px;
+	display: inline-block;  
+	width: 36px;
+}
+
+.locationsPage .form_wrap .form_dropdown .fa{ 
+	color:#4D93CC; 
+	font-size:17px;  
+	width: 28px; 
+	margin:0px 4px;
+}
+
+.form_wrap .location_search_field input{ border:0px;}
+.form_wrap .location_search_field { border:solid 1px #68B2D9;}
+.form_wrap .location_search_field .fa-search{ 
+	font-size:13px; 
+	color:#0367AF
+}
+
+.locationsPage .form_wrap .btn-default{padding: 6px 10px 4px 10px;}
+.locationsPage .form_wrap .location_heading_sml{ font-weight:bold; background:#F6F6F6; padding: 7px 10px;margin-bottom:7px; color:#0059A5}
+.locationsPage .form_wrap input.longfield{ width:92%}
+.locationsPage .form_wrap .collapsable_btn{ 
+	background:#fff; 
+	padding:5px 14px; 
+	margin:12px 0px; 
+	font-size:14px; 
+	border: solid 1px #ccc;
+	color: #999;
+}
+
+.locationsPage .form_wrap .collapsable_btn a{color: #999;}
+.locationsPage .form_wrap .collapsable_btn.isopen,
+.locationsPage .form_wrap .collapsable_btn.isopen ay{ border: solid 1px #ccc; color:#0059A5; }
+
+ul.locations_boxes{ padding:0px; margin:0px; list-style-type:none;font-family: 'Lato', sans-serif; position:relative;}
+ul.locations_boxes li{ height:140px; width:140px; background:#F6F6F6; margin: 8px 11px 8px 4px;}
+ul.locations_boxes li:hover{background:#f4f4f4; }
+ul.locations_boxes li .title{ font-size:14px; color:#0059A5;}
+ul.locations_boxes li .lnk{ 
+	color:#68B2D9;   
+	font-size: 13px;
+	margin-bottom: 9px;
+	display: block;
+}
+ul.locations_boxes li .p{ 
+	height: 70px;
+	overflow: hidden;
+	padding: 11px 15px 3px;
+}
+ul.locations_boxes li .p p{ margin:0px;}
+ul.locations_boxes li .bbtns{ padding: 2px 15px;}
+
+ul.locations_boxes li .bbtns img{ margin-right:7px;}
+ul.locations_boxes li .bbtns .fa{ font-size:20px; color:#0367AF;  font-weight: bold;margin-top: 14px;}
+ul.locations_boxes li .bbtns .fa-epg{ 
+	background:url(../images/epg-bird.png) top left no-repeat; 
+	width: 31px;
+	margin-top: 4px; 
+	height: 32px; 
+	display: block;
+}
+
+.visility_off{ visibility:hidden; position:absolute;}
+
+.remove_block ul li{ display:none !important;}
+
+ul.locations_content{ display:none}
+
+.load_more_locations{ color:#67B2D8; font-size:14px;}
+
+.locations_boxes .mix{
+    display: none;
+}
+
+ul.locations_boxes li .boxes_overlay{
+	position:absolute;
+	width: 49%;
+	max-width:450px;
+	height:140px;
+	top: 7px;
+	background:#69B1DE;
+	color:#fff;
+	display:none;
+	z-index: 9;
+	padding: 16px 15px 7px;
+}
+
+ul.locations_boxes li .boxes_overlay .titles{
+	font-size:18px; color:#fff;
+	font-weight:bold;
+}
+
+ul.locations_boxes li .boxes_overlay .exdetail{ width:70%;}
+ul.locations_boxes li .boxes_overlay .exdetail div{ width:47%; margin-left:4px;}
+ul.locations_boxes li .boxes_overlay .exdetail p{ margin:0px; font-size:12px; font-weight:bold;}
+ul.locations_boxes li .boxes_overlay .exdetail .loctime{ color:#73B9DF; background:#fff; font-size:16px; padding: 0px 6px;font-weight:normal; margin-bottom: 3px;}
+ul.locations_boxes li .boxes_overlay .exdetail .locdet{ padding: 5px 0px;}
+ul.locations_boxes li .boxes_overlay .exdetail .closebtn{  
+	position: absolute;
+	bottom: 10px;
+	right: 18px;
+	color: #fff;
+	font-size: 18px;
+	z-index:9;
+	cursor:pointer;
+}
+/* open layer for locations boxes  */
+ul.locations_boxes li .bbtns .glob{ z-index:99;}
+ul.locations_boxes li .bbtns.openlayer .fa{ color:#fff;}
+ul.locations_boxes li .bbtns.openlayer .glob{
+	position: absolute;
+	width: 109px;
+}
+
+ul.locations_boxes li .bbtns.openlayer .fa-epg{background: url(../images/epg-bird-white.png) top left no-repeat;}
+
+/* map info box*/
+.infobox{ color:#000}
+
+/* site loader */
+#global_loader{
+	position: fixed;
+	width: 100%;
+	height: 73px;
+	left: 0;
+	right: 0;
+	bottom: 20%;
+	display:none;
+	z-index: 11111;
+}
+
+#global_loader .spinner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -16px;
+	margin-left: -16px;
+	width: 32px;
+	height: 32px;
+	position: relative;
+}
+
+.ui-widget-content{  
+	border: solid 1px #31A2D4 !important;
+	color: #69B2DA !important;
+	font-size: 13px !important;
+	min-width:200px;
+	/*max-width: 300px !important;*/
+	background:#fff;
+}
+
+.ui-widget-content li{ padding:5px 8px; cursor:pointer;}
+
+.ui-widget-content .ui-menu-item:hover{
+	background:#69B2DA;
+	color:#fff;
+}
+
+@media only screen and (min-width: 768px) {
+	
+	.locationsPage .form_wrap .col-md-6{ padding:0px;}
+}
+
+
+@media only screen and (max-width: 767px) {
+	.locations_content{ padding: 0px 15px;}
+}

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html ng-app="locationApp">
+
+<head>
+    <title>.:: Emirates Post Group ::.</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Bootstrap -->
+    <link href="plugins/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="plugins/bootstrap/bootstrap-rtl.css" rel="stylesheet" media="screen">
+    <link href="plugins/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/style_ar.css" rel="stylesheet" media="screen">
+    <link href="css/app.css" rel="stylesheet" media="screen">
+
+    <link rel="stylesheet" href="plugins/jquery/jquery-ui.css">
+    <link href="css/eservices.css" rel="stylesheet" media="screen">
+    <link href="css/eservices_ar.css" rel="stylesheet" media="screen">
+    <link href="css/locations.css" rel="stylesheet" media="screen">
+    <link href="css/locations_ar.css" rel="stylesheet" media="screen">
+
+</head>
+
+<body>
+
+    <a name="gmap"></a>
+    <div ng-controller="LocationController">
+        <div id="mainContainer" class="" style="padding:5px;">
+            <br clear="all" />
+            <br clear="all" />
+            <div style="padding-left:30px; padding-right:30px;">
+                <div class="subages_head_image" id="map_canvas">
+                    <!-- map canvas -->
+                </div>
+            </div>
+            <!--  content  -->
+            <div class="newsTxtInfo locationsPage">
+                <!-- locationsPage class is for location page -->
+
+                <!-- form html -->
+                <div class="form_wrap">
+                    <!-- each form should have this wrapper to apply the given css -->
+                    <form>
+
+                        <div class="locations_content">
+
+                            <div class="location_heading_sml" style="direction: rtl;">
+                                <span class="" id="locs">سائٹس</span>
+                            </div>
+
+                            <!-- DUBAI -->
+                            <div id="dubai" class="collapsable_btn isopen">
+                                <!-- "isopen" class is for border and color of toggled bar -->
+                                <a href="#" class="states" data-toggle-btn="dubai">
+                                    <span class="fleft">دبئی</span>
+                                    <span class="fright"><i class="fa fa-chevron-down"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="dubai">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"dxb", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" id="{{location.pkid}}" href="#gmap"
+                                                    class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--dubai-->
+
+
+                            <!-- abudhabi -->
+                            <div id="abudhabi" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="abudhabi">
+                                    <span class="fleft">ابو ظہبی </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="abudhabi" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"auh", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--abudhabi-->
+
+
+                            <!-- sharjah -->
+                            <div id="sharjah" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="sharjah">
+                                    <span class="fleft">شارجہ </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="sharjah" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"shj", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--sharjah-->
+
+
+                            <!-- ajman -->
+                            <div id="ajman" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="ajman">
+                                    <span class="fleft">عجمان </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="ajman" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"ajm", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--ajman-->
+
+
+                            <!--Ras Al Khaimah-->
+                            <div id="rak" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="rak">
+                                    <span class="fleft">راس الخیمہ </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="rak" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"rak", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--Ras Al Khaimah-->
+
+
+                            <!--Umm Al Qaiwain-->
+                            <div id="uaq" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="uaq">
+                                    <span class="fleft">ام القیوین </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="uaq" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"uaq", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!--   where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--ummulqwain-->
+
+
+                            <!--Fujairah-->
+                            <div id="fuj" class="collapsable_btn">
+                                <a href="#" class="states" data-toggle-btn="fuj">
+                                    <span class="fleft">فجیرہ </span>
+                                    <span class="fright"><i class="fa fa-chevron-up"></i></span>
+                                </a>
+                                <br clear="all">
+                            </div>
+
+                            <!-- Locations boxes  -->
+                            <div data-form-section="fuj" class="visility_off remove_block">
+                                <ul class="locations_boxes">
+                                    <li class="fleft mix category-1" data-myorder="{{$index + 1}}"
+                                        ng-repeat='location in locationMarkers| filter : {"emirate_code":"fuj", "loc_type":"POSTOFFICE" }'
+                                        style="display: inline-block;">
+                                        <div class="p">
+                                            <p class="title">{{location.name_ur}}</p>
+                                            <p>
+                                                کھولیں: {{location.weekdays_ur}} {{location.weekday_timings}}
+                                            </p>
+                                        </div>
+                                        <div class="boxes_overlay" id="location_{{location.code}}">
+                                            <span class="titles fleft">{{location.name_ur}}</span>
+
+                                            <div class="fright exdetail">
+                                                <div class="fleft">
+                                                    <p class="loctime">اوقات</p>
+                                                    <p class="locdet">
+                                                        {{location.timing}}
+                                                    </p>
+                                                    <p class="loctime">GPS کے نقاط</p>
+                                                    <p class="locdet">
+                                                        {{location.gps_lat}}, {{location.gps_long}}
+                                                    </p>
+                                                </div>
+                                                <div class="fright">
+                                                    <!--                                                  
+                                                        <!-- where data-record-id will be ID of that record same as location_ -->
+                                                    <a class="closebtn" data-record-id="{{location.code}}"><i
+                                                            class="fa fa-close"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bbtns">
+                                            <p></p>
+                                            <p class="glob">
+                                                <a lang="urd" href="#gmap" class="fleft viewallmap locateOnMap"
+                                                    location="{{location.landmark_ur}}" id="{{location.code}}"
+                                                    name="{{location.name_ur}}" weekday="{{location.weekdays_ur}}"
+                                                    timings="{{location.weekday_timings}}"
+                                                    weekend="{{location.weekends}}"
+                                                    publicpobox="{{location.public_pobox}}"
+                                                    gpslat="{{location.gps_lat}}" gpslon="{{location.gps_long}}">
+                                                    <img src="images/ico_map.png" alt="">
+                                                </a>
+                                                <a class="fright"><i class="fa fa-epg"></i></a>
+                                            </p>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br clear="all">
+                            </div>
+                            <!--Fujairah-->
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <br clear="all" />
+        </div>
+    </div>
+
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        window.menu_slide_direction = "right";
+    </script>
+
+    <script src="plugins/jquery/jquery.js"></script>
+    <script src="plugins/jquery/jquery-ui.min.js"></script>
+    <script src="plugins/jquery/jquery.mixitup.js"></script>
+    <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <script src="plugins/jquery/jquery.bxslider.js"></script> <!-- third party for slider -->
+    <script src="js/script.js"></script>
+    <script src="plugins/angularjs/angular.min.js"></script>
+    <script src="plugins/angularjs/angular-route.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/eservices.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>    -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwBfA62MgJ-0ZyYJwv7tKV5fqjul5g70g&callback=initialize"
+        type="text/javascript"></script> -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDssO1wAgrd49kxD51MX1fpqd6AjPcgHaQ&callback=initialize"
+        type="text/javascript"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+
+    <script>
+        function initialize() {
+            $.getJSON("http://localhost:9000/rest/api/v2/locations", function (json) {
+                var markers = json;
+                if (!Array.isArray(markers) && json.markers
+                    && Array.isArray(json.markers)) {
+                    markers = json.markers;
+                }
+                App.globals.MapPoints = markers;
+                var latlng = new google.maps.LatLng(25.236477, 55.35783); // dubai default
+                var myOptions = {
+                    zoom: 11,
+                    center: latlng,
+                    disableDefaultUI: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                App.globals.locationMap = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                App.createMarkers();
+                $('.viewallmap').on('click', function (event) {
+                    App.mapMoveToPoint(this);
+                });
+                App.globals.locationMap.setCenter(latlng);
+                App.globals.locationMap.setZoom(18);
+                document.getElementById('999').click();
+            });
+        }
+        ;
+
+        $(document).ready(function () {
+            initialize();
+        });
+
+    </script>
+
+    <script type="text/javascript" src="js/locations.js"></script>
+    <script src="https://www.epg.gov.ae/cdn_epg/resources/js/if_child.js"></script>
+</body>
+
+</html>

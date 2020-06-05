@@ -1,0 +1,298 @@
+
+/* by Zeeshan Rasool */
+
+/* this is general css, if the form has a wrapper with form_wrap class the dropdown will have this style. Mostly this css is for all forms on the site which has wrapper with class .form_wrap*/
+
+.form_wrap{ padding:10px 0px; position:relative; width:100%;}
+
+.form_wrap h3,
+.form_wrap h4{
+	font-size:13px;
+	font-weight:normal;
+	padding:0px;
+	margin:18px 0px;
+	float: none;
+	clear:both;
+}
+/* form head part*/
+.form_wrap h3{color:#666;}
+.form_wrap h4{color:#005AA5; margin-top:8px;}
+
+.form_wrap .submit_ico {
+	width: 25px;
+	border: #87c0e0 solid 1px;
+	  padding-top: 6.3px;
+	background: #69b1d9 url(../images/arrowWhite.png) 4px 6px no-repeat;
+	margin-left: -25px;
+}
+
+::-webkit-input-placeholder {color:#69B2DA;}
+
+/* collapsed able bar*/
+.form_wrap .collapsable_btn{ background:#F6F6F6; padding:5px 14px; margin-bottom:7px; color:#0059A5}
+.form_wrap .collapsable_btn a { color:#31A2D4}
+
+.form_wrap .fields_wrap{ padding: 10px 15px;}
+
+.form_wrap label{ color:#67B2D8; font-size:12px;font-weight:normal; margin:0px; padding:0px; padding-bottom:6px; }
+
+/* input fields with class fields.*/
+.form_wrap input.fields{
+	color:#69B2DA;
+	font-size:12px;
+	border: solid 1px #69B2DA;
+	padding:5px 9px;
+	width:45%;
+}
+
+.form_wrap input.longfield {width: 90%;}
+.form_wrap input.full100 {width: 100%;}
+
+/* single row with one field per line */
+.form_wrap .single{ float:none; clear:both; margin-bottom:15px; }
+
+/* double fields in single row */
+.form_wrap .double{ float:left; margin-bottom:15px; width:45%; margin-right: 5%; /* in arabic we need margin-left */ }
+
+.form_wrap .double input.fields{ width:100%; }
+
+/* form yellow button */
+.form_wrap .yellbtn {
+	background: #dbaf58;
+	color: #FFF;
+	text-align: center;
+	padding: 5px 10px;
+	display: block;
+	border: none;
+	font-size: 12px;
+	line-height: 24px;
+	text-transform: none;
+	width: 130px;
+}
+
+.form_wrap .yellbtn:hover{ text-decoration:none; background: #E4C05F;}
+
+.form_wrap .simplbtn {
+	background: #fff;
+	color: #529FCD;
+	text-align: center;
+	padding: 2px 10px;
+	display: block;
+	border: none;
+	font-size: 12px;
+	line-height: 24px;
+	text-transform: none;
+	border: solid 1px #529FCD;
+	width: 100px;
+	margin: 0px 4px;
+}
+
+.form_wrap .simplbtn:hover{ text-decoration:none; background: #529FCD; color:#FFF;}
+
+/* submit buttons on same row*/
+.form_wrap .submit_btn_panel {
+	width: 45%; margin-top: 25px; float:right;
+}
+
+/* bootstrap dropdown */
+.form_wrap .form_dropdown{ position:relative;}
+.form_wrap .form_dropdown .dropdown-menu{ top:25px !important;}
+
+/* dropdown buton with white bg */
+.form_wrap .btn-default{
+	color: #AAAAAA;
+	background-color: #fff; 
+	font-size: 12px; 
+	border-color: #68B2D9; 
+	padding: 5px 10px 3px 10px;
+	border-radius: 0px;
+	text-align:left;
+	width:140px;
+}
+
+.form_wrap .btn-default:hover, 
+.form_wrap .btn-default:focus,
+.form_wrap .btn-default.focus, 
+.form_wrap .btn-default:active, 
+.form_wrap .btn-default.active, 
+.form_wrap .open > .dropdown-toggle.btn-default{
+	color: #fff;
+	background-color: #2997D3;
+	border-color: #2997D3;
+}
+
+.form_wrap .btn-default:hover .fa,
+.form_wrap .btn-default.active .fa, 
+.form_wrap .open > .dropdown-toggle.btn-default .fa,
+.form_wrap .btn-default:active .fa{
+	color: #fff !important;
+}
+
+.form_wrap .btn-default:hover .epg_branches,
+.form_wrap .open > .dropdown-toggle.btn-default .epg_branches{background: url(../images/epg_small_white.png) top left no-repeat !important;}
+
+/* dropdown with white blue bg */
+.form_wrap .btn-default.blue{
+	color: #fff;
+	background-color: #2997D3; 
+	font-size: 12px; 
+	border-color: #2997D3; 
+	padding: 5px 10px 3px 10px;
+	border-radius: 0px;
+	text-align:left;
+	width:140px;
+}
+
+.form_wrap .btn-default.blue:hover, 
+.form_wrap .btn-default.blue:focus,
+.form_wrap .btn-default.blue.focus, 
+.form_wrap .btn-default.blue:active, 
+.form_wrap .btn-default.blue.active, 
+.form_wrap .open > .dropdown-toggle.btn-default.blue{
+	color: #2997D3;
+	background-color: #fff;
+	border-color: #68B2D9;
+}
+
+.form_wrap .btn .caret{  
+	margin-top: 7px;
+	margin-right: 3px;
+}
+
+.form_wrap .dropdown-menu > li > a{color: #aaa; font-size:12px;}
+
+.form_wrap .form_dropdown .btn-default.smalldropdown{ width:70px; margin-right: 13px;}
+
+/* .epgChkbox */
+
+.form_wrap .epgChkbox {
+  width: 20px;
+  position: relative;
+}
+
+.form_wrap .epgChkbox label {
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	left: 0;
+	border: solid 1px #67B2D8;
+	background: #fcfff4;
+}
+
+.form_wrap .epgChkbox label:after {
+	content: '';
+	width: 9px;
+	height: 5px;
+	position: absolute;
+	top: 3px;
+	left: 2px;
+	border: 3px solid #67B2D8;
+	border-top: none;
+	border-right: none;
+	background: transparent;
+	opacity: 0;
+	transform: rotate(-45deg);
+}
+
+.form_wrap .epgChkbox label:hover::after {
+	opacity: 0.5;
+}
+ 
+.form_wrap .epgChkbox input[type=checkbox] {
+	visibility: hidden;
+}  
+  
+.form_wrap .epgChkbox input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+
+.form_wrap .search_dropdown_wrap{ float:left; min-width: 19%; margin-bottom:13px; margin-top:5px;}
+
+/* end .epgCheckbox */
+
+/* Sidebar menus, eservices . With icons */
+
+#eservices_menus_wrap ul li{
+	border: solid 1px #95CCEA;
+}
+
+#eservices_menus_wrap ul li{ margin:0px; padding-left: 30px;}
+#eservices_menus_wrap ul li a{padding:7% 12%;border:none; text-decoration:none;}
+#eservices_menus_wrap ul li a:hover{ border:none; text-decoration:none;}
+#eservices_menus_wrap ul li:hover, 
+#eservices_menus_wrap ul li.actv {
+  border:solid 1px #007DC6;
+}
+
+#eservices_menus_wrap ul li.ebox{ background:url(../images/ico_ebox.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.utility{ background:url(../images/ico_bills.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.mail_calc{ background:url(../images/ico_calc.png) center left no-repeat;  background-position: left 20px center; }
+#eservices_menus_wrap ul li.track_trace{ background:url(../images/ico_track.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.cust_enquiry{ background:url(../images/ico_inqu.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.tack_enquiry{ background:url(../images/ico_trck_inq.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.rent_pobox{ background:url(../images/ico_rentp.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.bulk_mail{ background:url(../images/ico_bulke.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.courior_licensing{ background:url(../images/ico_cour.png) center left no-repeat;  background-position: left 20px center;}
+#eservices_menus_wrap ul li.supplier_reg{ background:url(../images/ico_reg.png) center left no-repeat;  background-position: left 20px center;}
+
+#eservices_menus_wrap ul li.actv .fa-arrow-right,
+#eservices_menus_wrap ul li:hover .fa-arrow-right {
+	display: inline;
+}
+
+.subpage_head .subpage_menu_head #toggle_eservice_menu {
+    display: none;
+    cursor: pointer
+}
+
+@media only screen and (max-width: 1000px) {
+	
+	#eservices_menus_wrap ul li.actv .fa-arrow-right,
+	#eservices_menus_wrap ul li:hover .fa-arrow-right {
+		display: none;
+	}
+}
+
+@media (min-width: 741px) and (max-width: 961px) {
+	
+	.form_wrap .double.dropdown{ float:none; clear:both;width:100% }
+}
+
+
+/* breadcrumbs */
+.actionBar .breadcrumbs{ margin:0px; padding:0px; list-style-type:none;margin-top: 7px;}
+.actionBar .breadcrumbs li{ float:left;} /* in arabic needs change*/
+.actionBar .breadcrumbs li.actve{margin:0px 6px; color:#333; }
+.actionBar .breadcrumbs li a,
+.actionBar .breadcrumbs li{ color:#777777; font-family:Arial, Helvetica, sans-serif; font-size:11px;}
+.actionBar .breadcrumbs li a{ margin:0px 6px; text-decoration:underline !important; }
+
+
+@media (max-width: 768px) {
+	
+	.actionBar .breadcrumbs{ display:none}
+}
+
+@media only screen and (max-width: 740px) {
+	
+	.subpage_head .subpage_menu_head #toggle_eservice_menu {
+        display: inline
+    }
+	
+	#eservices_menus_wrap{z-index:99; }
+	#eservices_menus_wrap ul{padding-bottom:20%}
+	#eservices_menus_wrap ul li a{padding:2% 5%;}
+}
+
+@media only screen and (max-width: 610px) {
+	
+	.form_wrap .double, 
+	.form_wrap .submit_btn_panel{ float:none; clear:both;width:100% }
+	.form_wrap .submit_btn_panel{ margin-top:50px;}
+	.form_wrap input.fields{ width:100%}
+}
+
+
+/* end. by Zeeshan Rasool */
